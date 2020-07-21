@@ -1,7 +1,18 @@
+const webpack = require('webpack');
+
+
 module.exports = {
+  configureWebpack: {
+    plugins: [
+      new webpack.ContextReplacementPlugin(
+        /moment[/\\]locale$/,
+        /ru/
+      )
+    ]
+  },
   pluginOptions: {
     webpackBundleAnalyzer: {
-      openAnalyzer: false
+      openAnalyzer: true
     }
   },
   publicPath: './',
